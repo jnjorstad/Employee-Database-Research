@@ -1,0 +1,47 @@
+--1. List the employee number, last name, first name, sex, and salary of each employee
+SELECT public."Employees".emp_no, last_name, first_name, sex, salary
+FROM public."Employees" JOIN public.salaries on public."Employees".emp_no = public.salaries.emp_no;
+
+--2. List the first name, lat name, and hire date for employees who were hired in 1986
+SELECT first_name, last_name, hire_date 
+FROM public."Employees"
+WHERE hire_date >= '01/01/1986' 
+AND hire_date <= '12/31/1986';
+
+--3. List the manager of each dept with dept number, dept name, manager's employee number, last name, firsts name
+SELECT public.dept_manager.dept_no, public.departments.dept_name, public."Employees".emp_no, public."Employees".last_name, public."Employees".first_name
+FROM public."Employees" JOIN public.dept_manager ON public."Employees".emp_no = public.dept_manager.emp_no
+JOIN public.departments ON public.departments.dept_no = public.dept_manager.dept_no;
+
+--4. List the department of each employee with number, last name, first name, and department name
+SELECT public."Employees".emp_no, public."Employees".last_name, public."Employees".first_name, public.departments.dept_name
+FROM public."Employees" JOIN public.dept_emp ON public."Employees".emp_no = public.dept_emp.emp_no
+JOIN public.departments ON public.departments.dept_no = public.dept_emp.dept_no;
+
+--5. List the first namel last name, and sex for employees whose first name is "Hercules" and last names begin with "B"
+SELECT first_name, last_name, sex 
+FROM public."Employees"
+WHERE first_name = 'Hercules' AND last_name LIKE 'B%';
+
+--6. List all employees in Sales with employee number, last name, first name, and department name
+SELECT public."Employees".emp_no, public."Employees".last_name, public."Employees".first_name, public.departments.dept_name
+FROM public."Employees" JOIN public.dept_emp ON public."Employees".emp_no = public.dept_emp.emp_no
+JOIN public.departments ON public.departments.dept_no = public.dept_emp.dept_no
+WHERE public.departments.dept_name = 'Sales';
+
+--7. List all employees in Sales and Development with employee number, last name, first name, and department name
+SELECT public."Employees".emp_no, public."Employees".last_name, public."Employees".first_name, public.departments.dept_name
+FROM public."Employees" JOIN public.dept_emp ON public."Employees".emp_no = public.dept_emp.emp_no
+JOIN public.departments ON public.departments.dept_no = public.dept_emp.dept_no
+WHERE public.departments.dept_name = 'Sales' OR public.departments.dept_name = 'Development';
+
+--8. List the frequency count of employee last names in descending order
+SELECT last_name, count(last_name)
+FROM public."Employees"
+GROUP BY last_name 
+ORDER BY count(last_name) desc;
+
+
+
+
+
