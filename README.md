@@ -1,4 +1,4 @@
-# sql-challenge
+# Employee Database Research
 In this SQL Challenge, I have successfully inspected each CSV and created an ERD for each table, imported a table schema for each of the CSV files and imported each CSV file into thier corresponding SQL table, as well as performed a data analysis for the tables. 
 
 # Technologies
