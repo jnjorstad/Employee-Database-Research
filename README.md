@@ -1,5 +1,8 @@
 # Employee Database Research
-In this SQL Challenge, I have successfully inspected each CSV and created an ERD for each table, imported a table schema for each of the CSV files and imported each CSV file into thier corresponding SQL table, as well as performed a data analysis for the tables. 
+As a new data engineer at Pewlett Hackard, I conducted a research project on employees of the corporation from the 1980's and 1990's by designing tables to hold CSV's, importing the CSV's into a SQL database, and then analyzed the data.
+
+# Methods Used
+Data Modeling, Data Engineering, Data Analysis
 
 # Technologies
 SQL, QuickDBD
